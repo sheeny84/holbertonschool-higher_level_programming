@@ -37,9 +37,9 @@ Now use it:
     >>> matrix_divided([[1, 2], [3, 4]])
     Traceback (most recent call last):
     ...
-    ValueError: matrix and div must be provided
+    TypeError: matrix_divided() missing 1 required positional arguments: 'div'
 
     >>> matrix_divided()
     Traceback (most recent call last):
     ...
-    ValueError: matrix and div must be provided
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
