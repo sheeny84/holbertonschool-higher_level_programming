@@ -7,6 +7,8 @@ The add_integer module supplies one function, add_integer().  For example,
 >>> add_integer(1, 2)
 3
 """
+
+
 def add_integer(a, b=98):
     """
     Return the addition of two integers
