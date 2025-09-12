@@ -24,11 +24,13 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     ignoreSpace = 0
     for char in text:
-        if char == '.' or char == '?' or char == ':':
+        if char in '.?:':
             print(char)
             print()
             ignoreSpace = 1
-        elif ignoreSpace and char == ' ':
-            ignoreSpace = 0
+        elif ignoreSpace:
+            if char != " ":
+                print(char, end="")
+                ignoreSpace = 0
         else:
             print(char, end="")
