@@ -26,7 +26,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertTrue(max_integer([2]), 2)
 
     def test_empty_list(self):
-        self.assertTrue(max_integer(), None)
+        self.assertEqual(max_integer([]), None)
 
     def test_not_integer(self):
         self.assertRaises(TypeError, max_integer("string"))
