@@ -34,5 +34,8 @@ def matrix_divided(matrix, div):
                 raise TypeError("matrix must be a matrix (list of lists) "
                                 "of integers/floats")
 
-    new_matrix = [[round(x/div, 2) for x in row] for row in matrix]
+    if div == float('inf'):
+        new_matrix = [[0.0 for x in row] for row in matrix]
+    else:
+        new_matrix = [[round(x/div, 2) for x in row] for row in matrix]
     return new_matrix
