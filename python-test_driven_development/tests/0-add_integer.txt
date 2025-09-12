@@ -30,3 +30,8 @@ Now use it:
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
+
+    >>> add_integer(1e1000, 1)
+    Traceback (most recent call last):
+    ...
+    OverflowError: integer value too large
