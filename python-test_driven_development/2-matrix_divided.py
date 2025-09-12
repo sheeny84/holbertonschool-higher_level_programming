@@ -14,7 +14,9 @@ def matrix_divided(matrix, div):
     """
     Return a new matrix which is the result of the first matrix divided by div
     """
-    if not matrix or not div:
+    if not matrix:
+        raise ValueError("matrix and div must be provided")
+    if not div and div != 0:
         raise ValueError("matrix and div must be provided")
     if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")
