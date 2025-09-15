@@ -20,7 +20,14 @@ class Square:
             starting position of the square
         """
         self.__dict__ = {}
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
+        if not isinstance(position[0], int) or not isinstance(position[1], int) \
+                or position[0] < 0 or position[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
 
     def area(self):
@@ -44,9 +51,7 @@ class Square:
         Args:
             size (int): Size of the square
         """
-        if isinstance(value, int):
-            self.__size = value
-        else:
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
@@ -59,7 +64,7 @@ class Square:
         """
         return self.__position
 
-    @size.setter
+    @position.setter
     def position(self, value):
         """
         Set the current square position
