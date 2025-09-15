@@ -11,7 +11,7 @@ class Square:
     """
     def __init__(self, size):
         """
-        Initialise a new instance of Square 
+        Initialise a new instance of Square
         with size and an empty dictionary
 
         Args:
