@@ -26,7 +26,8 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = size
         if len(position) != 2 \
-                or not isinstance(position[0], int) or not isinstance(position[1], int) \
+                or not isinstance(position[0], int) \
+                or not isinstance(position[1], int) \
                 or position[0] < 0 or position[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
@@ -74,7 +75,8 @@ class Square:
             value (tuple): position coordinates
         """
         if len(value) != 2 \
-                or not isinstance(value[0], int) or not isinstance(value[1], int) \
+                or not isinstance(value[0], int) \
+                or not isinstance(value[1], int) \
                 or value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
@@ -83,10 +85,11 @@ class Square:
         """
         Print the current square with the character #
         """
-        for i in range(0, self.__position[1]):
-            print()
-        for i in range(0, self.__size):
-            print(self.__position[0]*" ", end="")
-            print("#"*self.__size)
         if self.__size == 0:
             print()
+        else:
+            for i in range(0, self.__position[1]):
+                print()
+            for i in range(0, self.__size):
+                print(self.__position[0]*" ", end="")
+                print("#"*self.__size)
