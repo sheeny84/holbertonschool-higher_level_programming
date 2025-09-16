@@ -6,9 +6,17 @@ This is the "Rectangle" class module.
 
 
 class Rectangle:
+    """
+    This is the Rectangle class
+    """
     number_of_instances = 0
+
     """
     Initialise a new instance of the Rectangle class
+
+    Args:
+        width (int): width of the Rectangle
+        height (int): height of the Rectangle
     """
     def __init__(self, width=0, height=0):
         Rectangle.number_of_instances += 1
