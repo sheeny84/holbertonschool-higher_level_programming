@@ -1,0 +1,1 @@
+This folder contains the task files for the Holberton Python - More Classes and Objects project.
