@@ -6,4 +6,7 @@ This is the "BaseGeometry" class
 
 
 class BaseGeometry:
+    """
+    Do nothing
+    """
     pass
