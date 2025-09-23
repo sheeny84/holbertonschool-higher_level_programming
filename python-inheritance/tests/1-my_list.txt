@@ -10,6 +10,9 @@ First import ``MyList`` from the ``1-my_list`` module:
 Now use it:
 
     >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+    
     >>> my_list.append(1)
     >>> my_list.append(4)
     >>> my_list.append(2)
@@ -22,3 +25,7 @@ Now use it:
 
     >>> print(my_list)
     [1, 4, 2]
+
+    >>> my_list.append(-2)
+    >>> my_list.print_sorted()
+    [-2, 1, 2, 4]
