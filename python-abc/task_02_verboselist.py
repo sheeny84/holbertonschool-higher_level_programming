@@ -25,7 +25,7 @@ class VerboseList(list):
     def pop(self, index=None):
         if index is None:
             print("Popped [{}] from the list.".format(self[-1]))
-            super().pop()
+            return super().pop()
         else:
             print("Popped [{}] from the list.".format(self[index]))
-            super().pop(index)
+            return super().pop(index)
