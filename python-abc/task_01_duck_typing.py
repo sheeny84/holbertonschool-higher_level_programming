@@ -29,6 +29,8 @@ class Circle(Shape):
     requires a radius on initialisation
     """
     def __init__(self, radius):
+        if radius < 0:
+            radius = radius * -1
         self.__radius = radius
 
     def area(self):
