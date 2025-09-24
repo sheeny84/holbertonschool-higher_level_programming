@@ -10,7 +10,7 @@ from abc import ABC, abstractmethod
 
 class Animal(ABC):
     """
-    Define abstract method for sound an animal makes
+    This is a generic Animal abstract class
     """
     @abstractmethod
     def sound(self):
@@ -19,7 +19,7 @@ class Animal(ABC):
 
 class Dog(Animal):
     """
-    Return the sound a dog makes i.e. Bark
+    This is the Dog class that inherits from the Animal class
     """
     def sound(self):
         return "Bark"
@@ -27,7 +27,7 @@ class Dog(Animal):
 
 class Cat(Animal):
     """
-    Return the sound a cat makes i.e. Bark
+    This is the Cat class that inherits from the Animal class
     """
     def sound(self):
         return "Meow"
