@@ -11,10 +11,10 @@ def pascal_triangle(n):
         return []
 
     triangle = [[1]]
-    for i in range(1, n+1):
+    for i in range(1, n):
         current_row = [1]
         prev_row = triangle[i-1]
-        for j in range(1, i):
+        for j in range(1, i+1):
             try:
                 current_row.append(prev_row[j-1] + prev_row[j])
             except IndexError:
