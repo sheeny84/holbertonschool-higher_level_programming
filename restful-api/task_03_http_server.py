@@ -30,11 +30,11 @@ class BasicHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(bytes(message, "utf8"))
         elif self.path == '/status':
             # Send response status code
-            self.send_response(200)
+            self.send_response(200, message='OK')
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
         else:
-            self.send_response(404)
+            self.send_response(404, message='Not found')
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b'404 Not Found')
