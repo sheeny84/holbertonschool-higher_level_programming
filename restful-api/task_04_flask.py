@@ -35,7 +35,7 @@ def add_user_api():
     if "username" not in data:
         return jsonify({"error": "Username is required"}), 400
     if data["username"] in users:
-        return jsonify({"error": "Username already exists"}), 400
+        return jsonify({"error": "User already exists"}), 409
     username = data["username"]
     users[username] = data
     user_info = data.copy()
