@@ -25,7 +25,7 @@ def status_api():
 @app.route("/users/<username>")
 def username_api(username):
     if username not in users:
-        return jsonify({"error": "User not found"}), 400
+        return jsonify({"error": "User not found"})
     return users.get(username)
 
 
