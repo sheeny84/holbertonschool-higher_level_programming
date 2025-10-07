@@ -39,7 +39,7 @@ def add_user_api():
     users[username] = data
     user_info = data.copy()
     user_info.pop("username", None)
-    return jsonify({"message": f"User added "}, users[username]), 201
+    return jsonify({"message": f"User added ", "user": users[username]}), 201
 
 
 if __name__ == "__main__":
