@@ -24,17 +24,18 @@ def status_api():
 
 @app.route("/users/<username>")
 def username_api(username):
-    user = users.get(username, None)
-    if user is None:
-        user = {"error", "User not found"}
-    return user
+    if username not in users:
+        return jsonify({"error": "User not found"}), 400
+    return users.get(username)
 
 
 @app.post("/add_user")
 def add_user_api():
     data = request.get_json()
     if "username" not in data:
-        return jsonify({"error": "Username is required"}, 400)
+        return jsonify({"error": "Username is required"}), 400
+    if data["username"] in users:
+        return jsonify({"error": "Username already exists"}), 400
     username = data["username"]
     users[username] = data
     user_info = data.copy()
