@@ -38,9 +38,7 @@ def add_user_api():
         return jsonify({"error": "User already exists"}), 409
     username = data["username"]
     users[username] = data
-    user_info = data.copy()
-    user_info.pop("username", None)
-    return jsonify({"message": f"User added ", "user": users[username]}), 201
+    return jsonify({"message": f"User added", "user": data}), 201
 
 
 if __name__ == "__main__":
