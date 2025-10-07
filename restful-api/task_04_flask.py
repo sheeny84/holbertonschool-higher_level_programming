@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 
-users = dict()
+users = {}
 
 @app.route("/")
 def home():
@@ -32,11 +32,14 @@ def username_api(username):
 
 @app.post("/add_user")
 def add_user_api():
-    new_user = request.get_json()
-    if new_user.get("username", None) is None:
-        return {"error": "Username is required"}
-    users.update(new_user)
-    return f"New user added: {jsonify(new_user)}"
+    data = request.get_json()
+    if "username" not in data:
+        return jsonify({"error": "Username is required"}, 400)
+    username = data["username"]
+    users[username] = data
+    user_info = data.copy()
+    user_info.pop("username", None)
+    return jsonify({"message": f"User added "}, users[username]), 201
 
 
 if __name__ == "__main__":
