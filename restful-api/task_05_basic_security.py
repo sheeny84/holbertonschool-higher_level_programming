@@ -55,7 +55,7 @@ def jwt_protected_api():
     current_user = get_jwt_identity()
     if current_user is None:
         return jsonify({"error": "Unauthorized"}), 401
-    return jsonify("JWT Auth: Access Granted"), 200
+    return "JWT Auth: Access Granted"
 
 
 @app.route('/admin-only', methods=["GET"])
