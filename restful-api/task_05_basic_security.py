@@ -52,9 +52,9 @@ def login_api():
 @jwt_required()
 def jwt_protected_api():
     # Access the identity of the current user with get_jwt_identity
-    current_user = get_jwt_identity()
-    if current_user is None:
-        return jsonify({"error": "Unauthorized"}), 401
+    # current_user = get_jwt_identity()
+    # if current_user is None:
+    #    return jsonify({"error": "Unauthorized"}), 401
     return "JWT Auth: Access Granted"
 
 
@@ -62,7 +62,6 @@ def jwt_protected_api():
 @jwt_required()
 def admin_only_api():
     current_user = users.get(get_jwt_identity())
-    print(f"Current user is {current_user}")
     if current_user.get("role") != "admin":
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
