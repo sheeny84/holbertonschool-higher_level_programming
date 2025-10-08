@@ -45,7 +45,7 @@ def login_api():
     if username == verify_password(username, password):
         access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token)
-    return jsonify({"error": "Invalid username or password"}), 400
+    return jsonify({"error": "Invalid username or password"}), 401
 
 
 @app.route('/jwt-protected', methods=["GET"])
