@@ -1,3 +1,3 @@
 -- count the number of rows of 'first_table'
-SELECT COUNT(*)
+SELECT COUNT(id)
 FROM first_table;
