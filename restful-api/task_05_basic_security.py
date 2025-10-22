@@ -49,7 +49,7 @@ def login_api():
 
 
 @app.route('/jwt-protected', methods=["GET"])
-@jwt_required()
+@jwt_required() # requires valid JWT token to access endpoint
 def jwt_protected_api():
     return "JWT Auth: Access Granted"
 
@@ -57,12 +57,13 @@ def jwt_protected_api():
 @app.route('/admin-only', methods=["GET"])
 @jwt_required()
 def admin_only_api():
-    current_user = users.get(get_jwt_identity())
+    user_identity = get_jwt_identity() # e.g. this will return "user1"
+    current_user = users.get(user_identity) # this will return the user dictionary
     if current_user.get("role") != "admin":
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
 
-
+# Override error handling to return 401
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
       return jsonify({"error": "Missing or invalid token"}), 401
