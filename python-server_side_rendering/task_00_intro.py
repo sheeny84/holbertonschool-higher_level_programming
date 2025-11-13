@@ -22,7 +22,9 @@ def generate_invitations(template, attendees):
         return 0
     
     count = 0
+    template_orig = template
     for attendee in attendees:
+        template = template_orig
         for key, value in attendee.items():
             if value == None:
                 template = template.replace('{' + key + '}', key+":N/A")
