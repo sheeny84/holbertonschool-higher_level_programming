@@ -3,18 +3,23 @@ import os
 def generate_invitations(template, attendees):
     # Check input types
     if not isinstance(template, str):
-        raise TypeError('template must be a string')
+        print('template must be a string')
+        return 0
     if not isinstance(attendees, list):
-        raise TypeError('attendees must be a list')
+        print('attendees must be a list')
+        return 0
     for item in attendees:
         if not isinstance(item, dict):
-            raise TypeError('attendees must be a list of dicts')
+            print('attendees must be a list of dicts')
+            return 0
         
     # Handle empty inputs
     if len(template) == 0:
-        raise ValueError('Template is empty, no output files generated.')
+        print('Template is empty, no output files generated.')
+        return 0
     if len(attendees) == 0:
-        raise ValueError('No data provided, no output files generated')
+        print('No data provided, no output files generated')
+        return 0
     
     count = 0
     for attendee in attendees:
@@ -27,10 +32,11 @@ def generate_invitations(template, attendees):
         # Write to file
         count = count + 1
         file_path = "output_" + str(count) + ".txt"
-        print(file_path)
         if os.path.exists(file_path):
             print(f"File {file_path} already exists")
         else:
             with open(file_path, 'w') as f:
                 f.write(template)
+    
+    return 1
     
