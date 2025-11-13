@@ -1,0 +1,30 @@
+{% include 'header.html' %}
+<!doctype html>
+   <html lang="en">
+   <head>
+       <title>Products Table</title>
+   </head>
+   <body>
+        {% if products is string %}
+            <p>{{ products|e }}</p>
+        {% else %}
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>category</th>
+                    <th>price</th>
+                </tr>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.id|e }}</td>
+                    <td>{{ product.name|e }}</td>
+                    <td>{{ product.category|e }}</td>
+                    <td>{{ product.price|e }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+   </body>
+   </html>
+{% include 'footer.html' %}
