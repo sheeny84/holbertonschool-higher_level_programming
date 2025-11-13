@@ -33,25 +33,23 @@ def products():
         # Parse json data
         with open('products.json', 'r') as f:
             data = json.load(f)
-        print(f"data in json is {data}")
     elif source_query == 'csv':  
         # Parse csv data
         with open('products.csv', 'r') as f:
             data = list(csv.DictReader(f))
-        print(f"data in csv is {data}")
     else:
         # Invalid source
         return render_template('product_display.html', products='Wrong source')
 
 
-    if id is not None:
+    if id_query is not None:
         for product in data:
-            if product['id'] == id_query:
+            if int(product['id']) == int(id_query):
                 return render_template('product_display.html', products=[product])
         # Id provided but not found
         return render_template('product_display.html', products='Product not found')
-
-    return render_template('product_display.html', products=data)
+    else:
+        return render_template('product_display.html', products=data)
 
         
 if __name__ == '__main__':
