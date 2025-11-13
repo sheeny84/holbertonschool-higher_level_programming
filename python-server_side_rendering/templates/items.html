@@ -6,11 +6,15 @@
    </head>
    <body>
        <ul>
-        {% for item in items %}
-            <li>{{ item|e }}</li>
-        {% else %}
+        {% if items is none %}
             <li><em>no items found</em></li>
-        {% endfor %}
+        {% else %}
+            {% for item in items %}
+                <li>{{ item|e }}</li>
+            {% else %}
+                <li><em>no items found</em></li>
+            {% endfor %}
+        {% endif %}
        </ul>
    </body>
    </html>
