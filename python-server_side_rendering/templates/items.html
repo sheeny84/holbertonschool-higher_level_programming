@@ -7,12 +7,12 @@
    <body>
        <ul>
         {% if items is none %}
-            <li><em>no items found</em></li>
+            <li>No items found</li>
         {% else %}
             {% for item in items %}
                 <li>{{ item|e }}</li>
             {% else %}
-                <li><em>no items found</em></li>
+                <li>No items found</li>
             {% endfor %}
         {% endif %}
        </ul>
