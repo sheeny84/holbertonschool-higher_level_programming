@@ -34,11 +34,8 @@ def generate_invitations(template, attendees):
         # Write to file
         count = count + 1
         file_path = "output_" + str(count) + ".txt"
-        if os.path.exists(file_path):
-            print(f"File {file_path} already exists")
-        else:
-            with open(file_path, 'w') as f:
-                f.write(template)
+        with open(file_path, 'w') as f:
+            f.write(template)
     
     return 1
     
