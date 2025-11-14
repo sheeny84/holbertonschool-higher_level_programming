@@ -21,15 +21,16 @@ def generate_invitations(template, attendees):
         print('No data provided, no output files generated')
         return 0
     
+    required_fields = ["name", "event_title", "event_date", "event_location"]
     count = 0
     template_orig = template
     for attendee in attendees:
         template = template_orig
-        for key, value in attendee.items():
-            if value == None:
-                template = template.replace('{' + key + '}', 'N/A')
-            else:
-                template = template.replace('{' + key + '}', value)
+        for field in required_fields:
+            value = attendee.get(field, None)
+            if value is None:
+                value = "N/A"
+            template = template.replace('{' + field + '}', value)
 
         # Write to file
         count = count + 1
